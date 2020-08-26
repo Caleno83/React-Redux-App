@@ -18,7 +18,7 @@ export const getAnime = () => (dispatch) => {
       .catch((err) => {
         dispatch({
           type: FETCHING_ANIME_ERROR,
-          payload: "Error fetching anime from API"
+          payload:` ${err.response.status} ${err.response.data}`
         });
         console.log(err);
       });

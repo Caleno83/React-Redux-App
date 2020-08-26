@@ -12,9 +12,10 @@ const AnimeCard = (props) => {
       {props.isFetching ? (
         <h3>Hold tight, we're fetching your anime data...</h3>
       ) : (
-        props.anime.map((pokemon) => (
-          <div key={pokemon.id} className="pokemon">
-            <div className="row">
+        <div className="pokemon">
+        {props.anime.map((pokemon) => (
+          <div key={pokemon.id}  className="all-pokemon">
+            <div>
               <div>
                 <img src={pokemon.imageUrl} alt="Pokemon" />
               </div>
@@ -25,7 +26,8 @@ const AnimeCard = (props) => {
               </div>
             </div>
           </div>
-        ))
+        ))}
+        </div>
       )}
       {props.error !== "" ? <h4 className="error">{props.error}</h4> : null}
       <button onClick={fetchAnime}>Fetch Favorite Anime List</button>
